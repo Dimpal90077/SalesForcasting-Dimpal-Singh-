@@ -2,7 +2,8 @@
 Shared data loading and modeling utilities for the Superstore Sales
 Analytics Streamlit app. All heavy computation is cached so pages load fast.
 """
-
+import os
+from pathlib import Path
 import numpy as np
 import pandas as pd
 import streamlit as st
@@ -13,7 +14,9 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from xgboost import XGBRegressor
 
-DATA_PATH = "train.csv"
+BASE_DIR = Path(__file__).resolve().parent
+DATA_PATH = BASE_DIR / "train.csv"
+
 
 
 # --------------------------------------------------------------------------
